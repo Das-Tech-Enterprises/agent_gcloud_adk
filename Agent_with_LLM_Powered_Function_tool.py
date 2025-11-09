@@ -46,7 +46,10 @@ await session_service.create_session(app_name=APP_NAME, session_id=SESSION_ID, u
 runner = Runner(agent=support_agent, session_service=session_service, app_name=APP_NAME)
 
 # Define and call the agent asynchronously
-
+async def call_agent_async(query: str):
+    print(f"\n>>> User Query: {query}")
+    content = types.Content(role='user', parts=[types.Part(text=query)])
+    final_response_text = "Agent did not produce a final response."
 
 
 
